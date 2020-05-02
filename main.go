@@ -7,4 +7,5 @@ import (
 func main() {
     Fmp.Profile("AAPL")
     Fmp.SectorPerformance()
+    Fmp.SymbolsList()
 }
