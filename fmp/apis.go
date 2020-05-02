@@ -29,7 +29,6 @@ func Profile(symbol string) ProfileDetail {
     res := GetRequest(url)
     var profile CompanyProfile
     json.Unmarshal([]byte(res), &profile)
-    fmt.Println(profile)
     return profile.ProfileDetail
 }
 
@@ -41,8 +40,18 @@ func SymbolsList() []SymbolDetail {
     res := GetRequest(url)
     var symbols Symbols
     json.Unmarshal([]byte(res), &symbols)
-    fmt.Println(symbols)
+    fmt.Println("Total Symbols", len(symbols.SymbolList))
     return symbols.SymbolList
+}
 
+func Ratios(symbol string) []FinancialRatio {
+    subpath := "financial-ratios/"
+    url := FMPBaseUrl + subpath + symbol
+    fmt.Println("FinancialRatios URL: ", url)
+
+    res := GetRequest(url)
+    var ratios FinancialRatios
+    json.Unmarshal([]byte(res), &ratios)
+    return ratios.Ratios
 }
 

@@ -1,5 +1,8 @@
 package fmp
 
+import (
+    "encoding/json"
+)
 
 type Sector struct {
     Name string           `json:"sector"`
@@ -46,5 +49,33 @@ type ProfileDetail struct {
     Image string          `json:"image"`
 }
 
+type FinancialRatio struct {
+    Date string
+    InvestmentValuationRatios InvestmentValuationRatios
+    ProfitabilityIndicatorRatios json.RawMessage
+    OperatingPerformanceRatios json.RawMessage
+    LiquidityMeasurementRatios json.RawMessage
+    DebtRatios json.RawMessage
+    CashFlowIndicatorRatios json.RawMessage
+}
 
+type InvestmentValuationRatios struct {
+    PriceBookValueRatio string
+    PriceToBookRatio string
+    PriceToSalesRatio string
+    PriceEarningsRatio string
+    ReceivablesTurnover string
+    PriceToFreeCashFlowsRatio string
+    PriceToOperatingCashFlowsRatio string
+    PriceCashFlowRatio string
+    PriceEarningsToGrowthRatio string
+    PriceSalesRatio string
+    DividendYield string
+    EnterpriseValueMultiple string
+    PriceFairValue string
+}
 
+type FinancialRatios struct {
+    Symbol string
+    Ratios []FinancialRatio
+}
