@@ -1,0 +1,188 @@
+{
+   "": {
+      "": [
+         "VXX",
+         "VWO",
+         "FXI",
+         "IWM",
+         "UVXY",
+         "AMLP",
+         "XLF",
+         "QQQ",
+         "EFA",
+         "SPY",
+         "GDX",
+         "EEM",
+         "XLU",
+         "VEA",
+         "HYG",
+         "EWJ",
+         "IEMG",
+         "GLD",
+         "OIH",
+         "XOP",
+         "USO",
+         "TVIX",
+         "JNK",
+         "XLK"
+      ]
+   },
+   "Basic Materials": {
+      "Building Materials": [
+         "CX"
+      ],
+      "Chemicals": [
+         "DWDP"
+      ],
+      "Metals \u0026 Mining": [
+         "GSM",
+         "VALE",
+         "FCX"
+      ],
+      "Steel": [
+         "AKS",
+         "NUE"
+      ]
+   },
+   "Communication Services": {
+      "Communication Services": [
+         "T",
+         "VEON"
+      ]
+   },
+   "Consumer Cyclical": {
+      "Autos": [
+         "F",
+         "GM"
+      ],
+      "Entertainment": [
+         "SIRI",
+         "CMCSA",
+         "P",
+         "FOXA",
+         "TWX"
+      ],
+      "Manufacturing - Apparel \u0026 Furniture": [
+         "NKE"
+      ],
+      "Retail - Apparel \u0026 Specialty": [
+         "LOW",
+         "BABA"
+      ],
+      "Travel \u0026 Leisure": [
+         "CZR"
+      ]
+   },
+   "Consumer Defensive": {
+      "Consumer Packaged Goods": [
+         "PG",
+         "GIS"
+      ],
+      "Retail - Defensive": [
+         "RAD",
+         "VIPS",
+         "KR"
+      ]
+   },
+   "Energy": {
+      "Oil \u0026 Gas - Drilling": [
+         "ESV"
+      ],
+      "Oil \u0026 Gas - E\u0026P": [
+         "HK",
+         "MRO",
+         "APC",
+         "SWN"
+      ],
+      "Oil \u0026 Gas - Integrated": [
+         "XOM"
+      ],
+      "Oil \u0026 Gas - Midstream": [
+         "KMI"
+      ],
+      "Oil \u0026 Gas - Services": [
+         "WFT",
+         "HAL",
+         "SLB"
+      ]
+   },
+   "Financial Services": {
+      "Banks": [
+         "BBD",
+         "C",
+         "BAC",
+         "WFC",
+         "JPM",
+         "RF",
+         "KEY"
+      ],
+      "Brokers \u0026 Exchanges": [
+         "MS"
+      ],
+      "Credit Services": [
+         "V",
+         "AXP"
+      ],
+      "Insurance": [
+         "AIG"
+      ]
+   },
+   "Healthcare": {
+      "Biotechnology": [
+         "GERN",
+         "GILD"
+      ],
+      "Drug Manufacturers": [
+         "PFE",
+         "BMY",
+         "ABBV"
+      ]
+   },
+   "Industrials": {
+      "Business Services": [
+         "WP"
+      ],
+      "Industrial Products": [
+         "GE"
+      ]
+   },
+   "Real Estate": {
+      "REITs": [
+         "CLNS"
+      ]
+   },
+   "Technology": {
+      "Application Software": [
+         "ORCL",
+         "MSFT",
+         "CRM",
+         "ZNGA",
+         "ATVI",
+         "SQ"
+      ],
+      "Communication Equipment": [
+         "NOK",
+         "CSCO"
+      ],
+      "Computer Hardware": [
+         "AAPL",
+         "HPQ",
+         "FLEX"
+      ],
+      "Online Media": [
+         "JD",
+         "TWTR",
+         "FB",
+         "SNAP",
+         "GRPN"
+      ],
+      "Semiconductors": [
+         "AVGO",
+         "AMAT",
+         "MU",
+         "INTC",
+         "AMD",
+         "QCOM"
+      ]
+   }
+}

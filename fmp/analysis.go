@@ -1,8 +1,11 @@
 package fmp
 
 import (
-    "fmt"
     "strconv"
+    "sync"
+    "os"
+    "encoding/json"
+    "io/ioutil"
 )
 
 type BasicValuation struct {
@@ -14,20 +17,32 @@ type BasicValuation struct {
     DividendYield float64
 }
 
-func GetCategoryMap() map[string]map[string][]string {
-    categories := make(map[string]map[string][]string)
+func GetCategoryMap(categoryJsonFile string) map[string]map[string][]string {
     symbols := SymbolsList()
-    for _, symbol := range symbols[:5] {
-        profile := Profile(symbol.Symbol)
-        if categories[profile.Sector] == nil {
-            categories[profile.Sector] = map[string][]string{}
-        }
-        var symbolList []string
-        symbolList = categories[profile.Sector][profile.Industry]
-        symbolList = append(symbolList, symbol.Symbol)
-        categories[profile.Sector][profile.Industry] = symbolList
+
+    var wg sync.WaitGroup
+    var categories = make(map[string]map[string][]string)
+
+    if _, err := os.Stat(categoryJsonFile); err == nil {
+        data, _ := ioutil.ReadFile(categoryJsonFile)
+        json.Unmarshal(data, &categories)
     }
-    fmt.Println(categories)
+
+    for _, symbol := range symbols[50:100] {
+        wg.Add(1)
+        go func(symbol string) {
+            defer wg.Done()
+            profile := Profile(symbol)
+            if categories[profile.Sector] == nil {
+                categories[profile.Sector] = map[string][]string{}
+            }
+            var symbolList []string
+            symbolList = categories[profile.Sector][profile.Industry]
+            symbolList = append(symbolList, symbol)
+            categories[profile.Sector][profile.Industry] = symbolList
+        }(symbol.Symbol)
+    }
+    wg.Wait()
     return categories
 }
 
