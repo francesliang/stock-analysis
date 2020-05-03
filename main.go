@@ -5,7 +5,16 @@ import (
     "fmt"
     "encoding/json"
     "io/ioutil"
+    "flag"
+    "strings"
 )
+
+type CLIFlags struct {
+    getcategory bool
+    sector string
+    industry string
+    symbols string
+}
 
 
 func generateCategoryMap(categoryJsonFile string) {
@@ -29,15 +38,30 @@ func CategoryValuation(categoryJsonFile string, sector string, industry string) 
 }
 
 func main() {
+
+    var flags CLIFlags
+
+    flag.BoolVar(&flags.getcategory, "getcategory", false, "Bool flag to indicate if to generate category mapping")
+    flag.StringVar(&flags.sector, "sector", "", "Sector of the stock")
+    flag.StringVar(&flags.industry, "industry", "", "Industry of the stock")
+    flag.StringVar(&flags.symbols, "symbols", "", "Symbols of stocks, separated by comma")
+    flag.Parse()
+
     var categoryJsonFile = "stock-categories.json"
-    //generateCategoryMap(categoryJsonFile)
+    if flags.getcategory { 
+        generateCategoryMap(categoryJsonFile)
+    }
 
-    var sector = "Technology"
-    var industry = "Application Software"
-    CategoryValuation(categoryJsonFile, sector, industry)
+    if (flags.sector != "" && flags.industry != "") {
+        CategoryValuation(categoryJsonFile, flags.sector, flags.industry)
+    }
 
-    //vComparison := Fmp.VerticalBasicValuation("AAPL")
-    //vComparisonJson, _ := json.MarshalIndent(vComparison, "", "   ")
-    //fmt.Println(string(vComparisonJson))
+    if flags.symbols != "" {
+        for _, symbol := range strings.Split(flags.symbols, ",") {
+            vComparison := Fmp.VerticalBasicValuation(symbol)
+            vComparisonJson, _ := json.MarshalIndent(vComparison, "", "   ")
+            fmt.Println(string(vComparisonJson))
+        }
+    }
 
 }

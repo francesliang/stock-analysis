@@ -10,6 +10,7 @@ import (
 
 type BasicValuation struct {
     Symbol string
+    Name string
     Beta float64
     PERatio float64
     PBRatio float64
@@ -69,7 +70,8 @@ func VerticalBasicValuation(symbol string) map[string]BasicValuation {
     // Dividend yield - like the interest, vary by industries 
     comparison := make(map[string]BasicValuation)
     ratios := Ratios(symbol)
-    beta, _ := strconv.ParseFloat(Profile(symbol).Beta, 64)
+    profile := Profile(symbol)
+    beta, _ := strconv.ParseFloat(profile.Beta, 64)
     for _, data := range ratios {
         peRatio, _ := strconv.ParseFloat(data.InvestmentValuationRatios.PriceEarningsRatio, 64)
         pbRatio, _ := strconv.ParseFloat(data.InvestmentValuationRatios.PriceToBookRatio, 64)
@@ -78,6 +80,7 @@ func VerticalBasicValuation(symbol string) map[string]BasicValuation {
 
         comparison[data.Date] = BasicValuation{
             Symbol: symbol,
+            Name: profile.CompanyName,
             Beta: beta,
             PERatio: peRatio,
             PBRatio: pbRatio,
